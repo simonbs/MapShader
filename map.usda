@@ -813,7 +813,7 @@ def Xform "Root"
             color3f inputs:default = (0.9632475, 0.06428349, 0) (
                 colorSpace = "srgb_displayp3"
             )
-            asset inputs:file = @../../Downloads/MapShader/terrain.png@
+            asset inputs:file = @terrain.png@
             string inputs:filtertype = "linear"
             float2 inputs:texcoord.connect = </Root/CylinderTerrainMaterial/CombineTextureCoordinates.outputs:out>
             string inputs:uaddressmode = "constant"
