@@ -7,10 +7,8 @@
 
 def Xform "Root"
 {
-    reorder nameChildren = ["cylinder", "CylinderTerrain", "FlatTerrain", "map_material", "CylinderTerrainMaterial", "FlatTerrainMaterial"]
-    def Material "map_material" (
-        active = false
-    )
+    reorder nameChildren = ["cylinder", "cylinder_1", "FlatTerrain", "map_material", "CylinderTerrainMaterial", "FlatTerrainMaterial"]
+    def Material "map_material"
     {
         float inputs:HeightOffset = -0.5 (
             customData = {
@@ -1257,7 +1255,6 @@ def Xform "Root"
     }
 
     def "FlatTerrain" (
-        active = false
         prepend apiSchemas = ["MaterialBindingAPI"]
         references = @FlatTerrain.usdz@
     )
@@ -1284,7 +1281,6 @@ def Xform "Root"
     }
 
     def "cylinder" (
-        active = false
         references = @cylinder.usdc@
     )
     {
@@ -1306,7 +1302,7 @@ def Xform "Root"
     def "CylinderTerrain" (
         active = true
         prepend apiSchemas = ["MaterialBindingAPI"]
-        references = @../../Desktop/MapShader-upstream/cylinder.usdc@
+        references = @cylinder.usdc@
     )
     {
         rel material:binding = </Root/CylinderTerrainMaterial> (
@@ -1314,7 +1310,7 @@ def Xform "Root"
         )
         quatf xformOp:orient = (1, 0, 0, 0)
         float3 xformOp:scale = (1, 1, 1)
-        float3 xformOp:translate = (0, 0, 0)
+        float3 xformOp:translate = (2.5, 0, 0)
         uniform token[] xformOpOrder = ["xformOp:translate", "xformOp:orient", "xformOp:scale"]
     }
 }
